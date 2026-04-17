@@ -3,37 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weather App</title>
+<title>Skycast Nexus</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+
+
 </head>
 
 <body>
+      
+    <div id="effects"></div>
 
 <div class="card">
-    <h2>🌦 Weather App</h2>
 
-    <form id="form">
-        <input type="text" id="city" placeholder="Enter city (e.g. Patna)" required>
-        <button type="submit">Search</button>
-    </form>
-
-    <div id="error"></div>
-
-    <div id="weatherBox" class="hidden">
-        <h3 id="cityName"></h3>
-        <img id="icon">
-        <h1 id="temp"></h1>
+    <!-- LEFT SIDE -->
+    <div class="left">
+        <img id="icon" src="" />
+        <h1 id="temp">--°C</h1>
+        <h3 id="cityName">Search City</h3>
         <p id="desc"></p>
-        <p>💧 Humidity: <span id="hum"></span></p>
-        <p>🌬 Wind: <span id="wind"></span></p>
-        <p>Feels Like: <span id="feels"></span></p>
-        <p>Pressure: <span id="pressure"></span></p>
-        
     </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+        <h2>Skycast Nexus</h2>
+
+        <form id="form">
+            <input type="text" id="city" placeholder="Enter city..." required>
+            <button type="submit">Search</button>
+        </form>
+
+        <div id="loader" class="hidden"></div>
+        <div id="error"></div>
+
+        <div id="weatherBox" class="hidden">
+            <p>Humidity: <span id="hum"></span></p>
+            <p>Wind: <span id="wind"></span></p>
+            <p>Feels Like: <span id="feels"></span></p>
+            <p>Pressure: <span id="pressure"></span></p>
+        </div>
+        <div class="forecast-container" id="forecast"></div>
+    </div>
+
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
