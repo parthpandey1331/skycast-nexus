@@ -3,7 +3,7 @@
 Skycast Nexus is a responsive web-based weather application developed using HTML, CSS, and JavaScript. The primary objective of this project was to strengthen core frontend development concepts while building a clean and visually appealing user interface. The design focuses on simplicity, readability, and smooth interaction, along with dynamic weather-based effects.
 
 Check my Skycast Nexus project here
-Link: skycast-nexus13301.netlify.app
+Link: [skycast-nexus13301.netlify.app](https://skycast-nexus13301.netlify.app/)
 
 ---
 
