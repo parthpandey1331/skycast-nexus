@@ -81,30 +81,46 @@ function updateUI(data) {
     weatherBox.classList.remove("hidden");
 
     // ===== EFFECTS CONTROL =====
-    const effects = document.getElementById("effects");
-    effects.className = "";
+            const effects = document.getElementById("effects");
+            effects.className = "";
+            effects.innerHTML = "";
 
-    let condition = data.weather[0].main.toLowerCase();
+            let condition = data.weather[0].main.toLowerCase();
 
-    if (condition.includes("thunderstorm")) {
-        effects.classList.add("rain", "lightning");
-    }
-    else if (condition.includes("rain") || condition.includes("drizzle")) {
-        effects.classList.add("rain");
-    }
-    else if (condition.includes("cloud")) {
-        effects.classList.add("clouds");
-    }
-    else if (
-        condition.includes("haze") ||
-        condition.includes("mist") ||
-        condition.includes("fog")
-    ) {
-        effects.classList.add("fog");
-    }
-    else if (condition.includes("clear")) {
-        effects.classList.add("sunny");
-    }
+        if (condition.includes("rain") || condition.includes("drizzle") || condition.includes("thunderstorm")) {
+
+            effects.classList.add("rain");
+
+            for (let i = 0; i < 80; i++) {
+                let drop = document.createElement("span");
+                drop.style.left = Math.random() * 100 + "%";
+                
+                drop.style.animationDuration = (0.3 + Math.random()) + "s";
+                drop.style.opacity = Math.random();
+
+                effects.appendChild(drop);
+            }
+
+            if (condition.includes("thunderstorm")) {
+                effects.classList.add("lightning");
+            }
+        }
+
+        else if (condition.includes("cloud")) {
+           
+        }
+
+        else if (
+            condition.includes("haze") ||
+            condition.includes("mist") ||
+            condition.includes("fog")
+        ) {
+            effects.classList.add("fog");
+        }
+
+        else if (condition.includes("clear")) {
+            effects.classList.add("sunny");
+        }
 
      getForecast(data.name);
 
@@ -123,29 +139,41 @@ async function getForecast(city) {
         let data = await res.json();
 
         // take first 8 items (~24 hours)
-        data.list.slice(0, 8).forEach(item => {
+        const dailyData = [];
+
+        data.list.forEach(item => {
+            if (item.dt_txt.includes("12:00:00")) {
+            dailyData.push(item);
+            }
+        });
+
+        dailyData.slice(0, 5).forEach((item, index) => {
 
             let dateObj = new Date(item.dt_txt);
+
             let day = String(dateObj.getDate()).padStart(2, '0');
             let month = String(dateObj.getMonth() + 1).padStart(2, '0');
             let year = dateObj.getFullYear();
             
-            let hours = String(dateObj.getHours()).padStart(2, '0');
-
             let formattedDate = `${day}/${month}/${year}`;
+            let dayName = dateObj.toLocaleDateString("en-US", { weekday: "short" });
+
             let temp = Math.round(item.main.temp);
             let icon = item.weather[0].icon;
 
-            let card = `
-                <div class="forecast-card">
-                    <p>${formattedDate}</p>
-                    <img src="https://openweathermap.org/img/wn/${icon}.png">
-                    <p>${temp}°C</p>
-                </div>
+            let card = document.createElement("div");
+            card.className = "forecast-card";
+            card.style.animationDelay = `${index * 0.1}s`;
+
+            card.innerHTML = `
+                <p>${formattedDate}</p>
+                <p>${dayName}</p>
+                <img src="https://openweathermap.org/img/wn/${icon}.png">
+                <p>${temp}°C</p>
             `;
 
-            forecastDiv.innerHTML += card;
-        });
+            forecastDiv.appendChild(card);
+    });      
 
     } catch (err) {
         console.log("Forecast error");

@@ -5,51 +5,79 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skycast Nexus</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 
 
 </head>
 
 <body>
-      
-    <div id="effects"></div>
 
-<div class="card">
+<div id="effects"></div>
 
-    <!-- LEFT SIDE -->
-    <div class="left">
-        <img id="icon" src="" />
-        <h1 id="temp">--°C</h1>
-        <h3 id="cityName">Search City</h3>
-        <p id="desc"></p>
+<div class="app-container">
+
+    <!-- TOP -->
+    <div class="top-bar">
+        <h1>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M18 10a4 4 0 0 0-7.9-1A5 5 0 0 0 6 20h12a4 4 0 0 0 0-10z"
+                stroke="#5ce1e6" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Skycast Nexus
+        </h1>
+        <p>Search any city and get real-time weather instantly</p>>
     </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="right">
-        <h2>Skycast Nexus</h2>
+    <!-- CARD -->
+    <div class="card">
 
-        <form id="form">
-            <input type="text" id="city" placeholder="Enter city..." required>
-            <button type="submit">Search</button>
-        </form>
-
-        <div id="loader" class="hidden"></div>
-        <div id="error"></div>
-
-        <div id="weatherBox" class="hidden">
-            <p>Humidity: <span id="hum"></span></p>
-            <p>Wind: <span id="wind"></span></p>
-            <p>Feels Like: <span id="feels"></span></p>
-            <p>Pressure: <span id="pressure"></span></p>
+        <div class="left">
+            <div class="clouds"></div>
+            <img id="icon" src="" />
+            <h1 id="temp">--°C</h1>
+            <h3 id="cityName">Search City</h3>
+            <p id="desc"></p>
         </div>
-        <div class="forecast-container" id="forecast"></div>
+
+        <div class="right">
+           <h2 class="section-title">Weather Dashboard</h2>
+
+            <form id="form">
+                <input type="text" id="city" placeholder="Enter city..." required>
+                <button type="submit">Search</button>
+            </form>
+
+            <div id="loader" class="hidden"></div>
+            <div id="error"></div>
+
+            <div id="weatherBox" class="hidden">
+                <p>Humidity: <span id="hum"></span></p>
+                <p>Wind: <span id="wind"></span></p>
+                <p>Feels Like: <span id="feels"></span></p>
+                <p>Pressure: <span id="pressure"></span></p>
+            </div>
+
+            <div class="forecast-container" id="forecast"></div>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="bottom-bar">
+        <p>© 2026 Skycast Nexus • Built by Parth</p>
+        <div class="links">
+            <a href="https://github.com/parthpandey1331">GitHub</a>
+            <a href="https://www.linkedin.com/in/parth-pandey-b56745359/"> LinkedIn </a>
+            <a href="mailto:parthpandey201@gmail.com"> Email </a>
+
+        </div>
     </div>
 
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
 

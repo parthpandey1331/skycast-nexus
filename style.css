@@ -1,319 +1,14 @@
-/* ===== BODY ===== */
+/* ================= BODY ================= */
 body {
     margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Poppins', sans-serif;
-
+    scroll-behavior: smooth;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-
+    overflow-y: auto;
     position: relative;
     z-index: 1;
 }
 
-/* ===== CARD ===== */
-.card {
-    display: flex;
-    width: 800px;
-    min-height: 450px;
-    border-radius: 30px;
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow:
-        0 30px 80px rgba(0,0,0,0.6),
-        inset 0 1px 0 rgba(255,255,255,0.15);
-    overflow: hidden;
-    position: relative;
-    animation: fadeUp 0.8s ease;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card:hover {
-    transform: translateY(-8px) scale(1.01);
-}
-
-/* ===== LEFT PANEL ===== */
-.left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #36d1dc, #5b86e5);
-    background-size: 200% 200%;
-    animation: gradientMove 8s ease infinite;
-    color: white;
-    text-align: center;
-    position: relative;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Glow animation */
-.left::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-
-    background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
-
-    top: -50%;
-    left: -50%;
-
-    animation: glowMove 6s linear infinite;
-}
-
-@keyframes glowMove {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Keep content above glow */
-.left * {
-    position: relative;
-    z-index: 2;
-}
-
-.left h1 {
-    font-size: 80px;
-    font-weight: bold;
-
-    text-shadow:
-        0 0 25px rgba(255,255,255,0.9),
-        0 0 60px rgba(255,255,255,0.5);
-
-    animation: pulse 2.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* ===== ICON ===== */
-#icon {
-    width: 140px;
-
-    filter: drop-shadow(0 0 25px rgba(255,255,255,0.8));
-    animation: floatIcon 3s ease-in-out infinite;
-}
-
-@keyframes floatIcon {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-/* ===== TEMP ===== */
-.left h1 {
-    font-size: 75px;
-    margin: 0;
-
-    text-shadow: 
-        0 0 20px rgba(255,255,255,0.8),
-        0 0 40px rgba(255,255,255,0.4);
-}
-
-/* ===== RIGHT PANEL ===== */
-.right {
-    flex: 1;
-    padding: 25px;
-    background: linear-gradient(145deg, rgba(20, 25, 30, 0.85), rgba(10, 15, 20, 0.9));
-    backdrop-filter: blur(12px);
-    color: white;
-    overflow-y: auto;
-    border-left: 1px solid rgba(255,255,255,0.08);
-}
-.right::-webkit-scrollbar {
-    width: 6px;
-}
-
-.right::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.2);
-    border-radius: 10px;
-}
-
-
-
-/* ===== INPUT ===== */
-input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    border: none;
-
-    background: rgba(255,255,255,0.1);
-    color: white;
-
-    margin-bottom: 10px;
-}
-
-input::placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-/* ===== BUTTON ===== */
-button {
-    width: 100%;
-    padding: 12px;
-
-    border-radius: 12px;
-    border: none;
-
-    background: linear-gradient(135deg, #36d1dc, #5b86e5);
-    color: white;
-
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(91,134,229,0.5);
-    filter: brightness(1.1);
-}
-
-/* ===== WEATHER BOX ===== */
-#weatherBox {
-    margin-top: 15px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-#weatherBox p {
-    background: linear-gradient(
-         145deg,
-        rgba(255,255,255,0.08),
-        rgba(255,255,255,0.02)
-    );
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.08);
-    backdrop-filter: blur(5px);
-    transition: 0.3s;
-}
-
-#weatherBox p:hover {
-    background: rgba(255,255,255,0.15);
-}
-
-/* ===== LOADER ===== */
-#loader {
-    border: 4px solid rgba(255,255,255,0.2);
-    border-top: 4px solid #36d1dc;
-
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-
-    margin: 10px auto;
-
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    100% { transform: rotate(360deg); }
-}
-
-/* ===== ERROR ===== */
-#error {
-    color: #ff6b6b;
-}
-
-/* ===== HIDDEN ===== */
-.hidden {
-    display: none;
-}
-
-/* ===== EFFECTS LAYER ===== */
-#effects {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* ===== RAIN ===== */
-.rain {
-    background-image:
-        linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 1px 10px, 2px 15px, 3px 25px;
-    animation: rainFall 0.25s linear infinite;
-}
-
-@keyframes rainFall {
-    from { background-position: 0 0, 50px 0; }
-    to { background-position: 0 20px, 50px 30px; }
-}
-
-/* ===== LIGHTNING ===== */
-.lightning {
-    animation: lightningFlash 4s infinite;
-}
-
-@keyframes lightningFlash {
-    0%, 95%, 100% { background: transparent; }
-    96% { background: rgba(255,255,255,0.6); }
-    97% { background: transparent; }
-}
-
-/* ===== FOG ===== */
-.fog {
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(20px);
-    animation: fogMove 10s linear infinite;
-}
-
-@keyframes fogMove {
-    from { transform: translateX(0); }
-    to { transform: translateX(50px); }
-}
-
-/* ===== SUNNY ===== */
-.sunny {
-    background: radial-gradient(
-        circle at center,
-        rgba(255,255,255,0.25),
-        rgba(255,255,255,0.05),
-        transparent
-    );
-    animation: sunPulse 3s ease-in-out infinite;
-}
-
-@keyframes sunPulse {
-    0% { opacity: 0.7; }
-    50% { opacity: 1; }
-    100% { opacity: 0.7; }
-}
-
-/* DAY NIGHT */
 body.day {
     background: linear-gradient(135deg, #4facfe, #00f2fe);
 }
@@ -322,125 +17,45 @@ body.night {
     background: linear-gradient(135deg, #0f2027, #203a43, #000000);
 }
 
-/* CLOUDS */
-.clouds::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    background: url("https://www.transparenttextures.com/patterns/cloudy.png");
-    opacity: 0.15;
-    animation: moveClouds 40s linear infinite;
+/* ================= APP LAYOUT ================= */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 60px 0;
 }
 
-@keyframes moveClouds {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
-/* RAIN */
-.rain {
-    background-image:
-        linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
-
-    background-size: 1px 10px, 2px 15px, 3px 25px;
-    animation: rainFall 0.25s linear infinite;
-}
-
-/* LIGHTNING */
-.lightning {
-    animation: lightningFlash 5s infinite;
-}
-
-@keyframes lightningFlash {
-    0%, 90%, 100% { background: transparent; }
-    92% { background: rgba(255,255,255,0.9); }
-    93% { background: transparent; }
-    94% { background: rgba(255,255,255,0.6); }
-}
-
-/* FOG */
-.fog {
-    background: rgba(255,255,255,0.15);
+/* ================= CARD ================= */
+.card {
+    display: flex;
+    max-width: 900px;
+    width: 90%;
+    min-height: 450px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.06);
     backdrop-filter: blur(25px);
-    animation: fogMove 12s linear infinite alternate;
-}
-
-/* SUNNY */
-.sunny {
-    background: radial-gradient(
-        circle at center,
-        rgba(255,255,255,0.25),
-        rgba(255,255,255,0.05),
-        transparent
-    );
-}
-
-
-/* ===== FORECAST CONTAINER ===== */
-.forecast-container {
-    margin-top: 20px;
-    display: flex;
-    gap: 16px;
-    cursor: grab; 
-    overflow-x: auto;
-    padding-bottom: 12px;
-
-    scroll-behavior: smooth;
-}
-
-/* hide scrollbar */
-.forecast-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* ===== FORECAST CARD ===== */
-.forecast-container {
-    margin-top: 20px;
-    display: flex;
-    gap: 16px;
-    cursor: grab;
-    overflow-x: auto;
-    padding-bottom: 12px;
-}
-.forecast-container:active {
-    cursor: grabbing;
-}
-
-.forecast-container::-webkit-scrollbar {
-    display: none;
-}
-
-.forecast-card {
-    min-width: 120px;
-    padding: 18px;
-
-    border-radius: 20px;
-
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,0.12),
-        rgba(255,255,255,0.02)
-    );
-
     border: 1px solid rgba(255,255,255,0.1);
-
-    backdrop-filter: blur(12px);
-
-    text-align: center;
-
-    transition: all 0.35s ease;
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+    animation: fadeUp 0.8s ease;
+    z-index: 3;
+    transition: all 0.4s ease;
 }
 
-/* hover physics */
-.forecast-card:hover {
-    transform: translateY(-10px) scale(1.08);
-
+.card:hover {
+    transform: translateY(-10px) scale(1.01);
     box-shadow:
-        0 15px 40px rgba(0,0,0,0.5),
-        0 0 25px rgba(91,134,229,0.4);
+        0 40px 100px rgba(0,0,0,0.7),
+        0 0 40px rgba(91,134,229,0.2);
 }
 
 .card::after {
@@ -457,4 +72,223 @@ body.night {
         transparent
     );
     opacity: 0.2;
+}
+
+/* ================= LEFT PANEL ================= */
+.left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #5bc0eb 0%, #3a86ff 100%);
+    background-size: 200% 200%;
+    animation: gradientMove 8s ease infinite;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.left * {
+    position: relative;
+    z-index: 2;
+}
+
+.left h1 {
+    font-size: 75px;
+    margin: 0;
+    background: linear-gradient(135deg, #ffffff, #dbeafe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShine 4s linear infinite;
+}
+
+.left p {
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Glow */
+.left::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+    top: 30%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    filter: blur(40px);
+}
+
+/* ================= RIGHT PANEL ================= */
+.right {
+    flex: 1;
+    padding: 25px;
+    background: linear-gradient(
+        160deg,
+        rgba(10,15,20,0.95),
+        rgba(20,25,30,0.85)
+    );
+    backdrop-filter: blur(12px);
+    color: white;
+    overflow-y: auto;
+    border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Scrollbar */
+.right::-webkit-scrollbar {
+    width: 6px;
+}
+.right::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* ================= INPUT ================= */
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    margin-bottom: 10px;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(91,134,229,0.5);
+}
+
+/* ================= WEATHER BOX ================= */
+#weatherBox {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#weatherBox p {
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+}
+
+/* ================= FORECAST ================= */
+.forecast-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+}
+
+.forecast-card {
+    min-width: 120px;
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    text-align: center;
+}
+
+/* ================= EFFECTS ================= */
+#effects {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+/* ================= RAIN ================= */
+.rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rain span {
+    position: absolute;
+    width: 2px;
+    height: 18px;
+
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 6px rgba(255,255,255,0.6);
+
+    animation: drop 0.6s linear infinite;
+}
+
+/* Rain animation */
+@keyframes drop {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+
+/* ================= CLOUDS ================= */
+.clouds {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(1.5px);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+
+/* ================= TOP BAR ================= */
+.top-bar {
+    text-align: center;
+    z-index: 5;
+}
+
+.top-bar h1 {
+    color: #5ce1e6;
+}
+
+.top-bar p {
+    opacity: 0.6;
+    color: #5ce1e6;
+}
+
+/* ================= BOTTOM ================= */
+.bottom-bar {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+}
+
+.bottom-bar a {
+    color: #5ce1e6;
+    text-decoration: none;
 }
