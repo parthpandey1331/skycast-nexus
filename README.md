@@ -44,7 +44,7 @@ Link: skycast-nexus13301.netlify.app
 
 ### Weather Effects
 
-![Rain Effect](<screenshot2.png>)
+![Rain Effect](<Screenshot2.png>)
 
 ---
 
