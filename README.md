@@ -1,79 +1,72 @@
 # Skycast Nexus
 
-Skycast Nexus is a weather web application built to display real-time weather information along with a simple and interactive user interface. The project focuses on combining API integration with clean UI design and basic visual effects.
+Skycast Nexus is a responsive web-based weather application developed using HTML, CSS, and JavaScript. The primary objective of this project was to strengthen core frontend development concepts while building a clean and visually appealing user interface. The design focuses on simplicity, readability, and smooth interaction, along with dynamic weather-based effects.
 
----
-
-## About the Project
-
-This project was developed as part of frontend learning. The main objective was to understand how to work with APIs, handle asynchronous JavaScript, and design a user-friendly interface.
-
-The application allows users to search for any city and view current weather conditions along with forecast data.
+Check my Skycast Nexus project here
+Link: skycast-nexus13301.netlify.app
 
 ---
 
 ## Features
 
 * Search weather by city name
-* Display temperature, humidity, wind speed, and pressure
-* 5-day weather forecast
-* Day and night mode based on time
-* Weather-based visual effects such as rain, fog, and clear sky
-* Smooth and responsive UI interactions
+* Displays real-time temperature, humidity, wind speed, and pressure
+* 5-day weather forecast with date and day
+* Day and night mode based on local time
+* Dynamic weather effects such as rain, fog, clouds, and clear sky
+* Smooth UI with animations and transitions
+* Horizontal scrollable forecast section with drag interaction
 
 ---
 
 ## Technologies Used
 
-* HTML
-* CSS
-* JavaScript
-* OpenWeatherMap API
+* HTML for structuring the application
+* CSS for styling, layout, and visual effects
+* JavaScript for API integration, logic, and user interactions
+* OpenWeatherMap API for fetching real-time weather data
 
 ---
 
-## How to Run
+## Project Structure
 
-1. Clone or download the repository
-2. Open the `index.html` file in a browser
-3. Enter a city name to view weather details
+* `index.html` – Contains the structure of the application
+* `style.css` – Handles styling, layout, and animations
+* `script.js` – Implements API calls, logic, and UI updates
+
+---
+
+## Screenshots
+
+### Main Interface
+
+![Main Interface](<screenshot.png>)
+
+### Weather Effects
+
+![Rain Effect](<screenshot2.png>)
 
 ---
 
 ## Learning Outcomes
 
-* Understanding API integration using fetch and async/await
-* DOM manipulation using JavaScript
-* Designing layouts with CSS
-* Implementing basic animations and visual effects
-* Structuring a frontend project
+Through this project, I gained practical experience in working with APIs using fetch and async/await. I improved my understanding of DOM manipulation, handling real-time data, and creating dynamic UI updates. I also explored how to implement visual effects using CSS and manage user interactions effectively.
 
 ---
 
-## Limitations
+## Future Enhancements
 
-* API key is exposed on the client side
-* Mobile responsiveness can be improved
-* Limited error handling for edge cases
-
----
-
-## Future Improvements
-
-* Add location-based weather detection
-* Improve mobile UI and responsiveness
-* Enhance animations and transitions
+* Add location-based weather detection using geolocation
+* Improve mobile responsiveness and layout
+* Enhance visual effects and animations
 * Add search history feature
+* Secure API key using backend integration
 
 ---
 
-## Conclusion
+## Author
 
-This project helped in strengthening the fundamentals of frontend development. It combines API usage with UI design and provides a base for building more advanced web applications in the future.
+Parth Pandey
 
----
-## Screenshots
-
-![Home](assets/screenshot.png)
-![Rain Effect](assets/screenshot2.png)
+This project is part of my ongoing learning in frontend development and building interactive web applications.
 
