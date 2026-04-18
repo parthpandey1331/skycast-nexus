@@ -72,3 +72,8 @@ The application allows users to search for any city and view current weather con
 This project helped in strengthening the fundamentals of frontend development. It combines API usage with UI design and provides a base for building more advanced web applications in the future.
 
 ---
+## Screenshots
+
+![Home](assets/screenshot.png)
+![Rain Effect](assets/screenshot2.png)
+
